@@ -1,0 +1,21 @@
+{
+  "name": "blogbackend",
+  "version": "1.0.0",
+  "description": "its a node project which handles all the data related blog project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon"
+  },
+  "author": "Paritosh",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
