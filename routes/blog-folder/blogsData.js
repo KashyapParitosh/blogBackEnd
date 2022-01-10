@@ -34,7 +34,7 @@ const ListOfBlogData = [
     desc: "If you run a fitness gym, this is one slogan that can bring customers in. No one likes having to drive miles out of their way to go to the gym. It is always easier to have a gym that is actually close to home.",
     category: "Fitness",
     time: " /November 21 2015",
-    claps : 51,
+    claps : 56,
     isLiked : false,
   },
 

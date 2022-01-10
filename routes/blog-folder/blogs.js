@@ -34,7 +34,22 @@ router.get("/singlePost", verifyToken, (req,res) => {
 
 })
 
+router.get("/filterByClap", verifyToken, (req,res)=> {
+    const clapCount = 55;
+    
 
-
+    const filterDataByClap = ListOfBlogData.filter((blog)=> {
+        return blog.claps >= clapCount;
+    })
+    
+    if(filterDataByClap === undefined ){
+        res.status(400)
+        .json({success : false, message: "No blogs available"})
+        return
+    }
+    res
+    .status(200)
+    .json({success:true, message: "blogs filtered by clap count", filterDataByClap})
+})
 
 module.exports = router;
