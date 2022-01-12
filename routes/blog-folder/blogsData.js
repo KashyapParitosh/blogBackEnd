@@ -149,7 +149,7 @@ const ListOfBlogData = [
     desc: "It was on April 21, 2014, when Rani Mukerji had tied the knot with the well-acclaimed director of B-town, Aditya Chopra, in an intimate wedding ceremony. Rani and Aditya had a secret wedding. After a year-and-a-half post their marital bliss, the couple was blessed with a baby girl, Adira Chopra, a name which is an amalgamation of their names.",
     category: "Bollywood",
     time: "/Nov 19, 2021",
-    claps : 35,
+    claps : 61,
     isLiked : true,
   },
 
