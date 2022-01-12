@@ -3,7 +3,7 @@ const jwtSecretKey = require('../secretKey');
 
 const verifyToken = (req, res, next) => {
     const { authorization } = req.headers
-    
+    console.log(authorization);
     if(authorization === undefined) {
         res.status(400).json({
             success : false,
@@ -13,13 +13,12 @@ const verifyToken = (req, res, next) => {
     }
      
     const [, token ] = authorization.split(" ");
+    console.log(token);
 
     try {
         const payload = jwt.verify( token, jwtSecretKey );
         res.auth = payload;
         next();
-        // res.status(200)
-        //      .json({ success : true , message: "Login successfully", data : payload });
     } catch (error) {
         res.status(403).json({
             success : false,

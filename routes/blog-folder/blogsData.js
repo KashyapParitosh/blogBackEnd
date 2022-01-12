@@ -9,7 +9,7 @@ const ListOfBlogData = [
     category: "Bollywood",
     time: " /september 15 2017",
     claps : 50,
-    isLiked : false,
+    isLiked : true,
   },
 
   {
@@ -22,7 +22,7 @@ const ListOfBlogData = [
     category: "Food",
     time: " /November 25 2018",
     claps : 52,
-    isLiked : false,
+    isLiked : true,
   },
 
   {
@@ -150,7 +150,7 @@ const ListOfBlogData = [
     category: "Bollywood",
     time: "/Nov 19, 2021",
     claps : 35,
-    isLiked : false,
+    isLiked : true,
   },
 
   {
@@ -163,7 +163,7 @@ const ListOfBlogData = [
     category: "Hollywood",
     time: " /November 15 2021",
     claps : 59,
-    isLiked : false,
+    isLiked : true,
   },
 
   {
@@ -176,7 +176,7 @@ const ListOfBlogData = [
     category: "Fitness",
     time: " /December 21 2015",
     claps : 52,
-    isLiked : false,
+    isLiked : true,
   },
 
   {
