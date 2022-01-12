@@ -96,7 +96,7 @@ const ListOfBlogData = [
     ImgUrl:
       "https://www.thetravelmagazine.net/wp-content/uploads/new-york-central-park-in-winter-frozen-lake.jpg",
     title: "Why New York is a great winter destination",
-    desc: "When I visited New York one December, I admit that despite thermals and layers, I was freezing. The cold temperatures – sometimes reaching lows of -2°C – were further blighted by biting Arctic winds. Yet streaming eyes and a face pinched by the frost did not deter me from enjoying an hour-long narrated horse and carriage ride around Central Park warmed by a cosy blanket. Or sauntering (with a guide) around the park’s huge expanse enjoying picturesque spells of sunny hues as they fell upon ground decorated with new snowfall. And stumbling upon Yoko Ono’s heart-warming memorial to the much-loved John Lennon.",
+    desc: "When I visited New York one December, I admit that despite thermals and layers, I was freezing. The cold temperatures – sometimes reaching lows of -2°C – were further blighted by biting Arctic winds. Yet streaming eyes and a face pinched by the frost did not deter me from enjoying an hour-long narrated horse and carriage ride around Central Park warmed by a cosy blanket.",
     category: "Travel",
     time: " /March 12 2021",
     claps : 54,
