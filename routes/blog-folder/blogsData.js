@@ -53,14 +53,14 @@ const ListOfBlogData = [
 
   {
     id: 4,
-    author: "Devender Das",
+    author: "Paritosh Kashyap",
     ImgUrl:
-      "https://www.culturalindia.net/iliimages/Bengali-Food-&-Cuisine-1.jpg",
-    title: "Bengali Food & Cuisine",
-    desc: "Bengali food that originated and evolved in the region of Bengal situated in the eastern subcontinent of India (presently divided into West Bengal in India and a separate nation called Bangladesh) is rich and varied in its platter starting from snacks to main courses to sweets Bengali food that originated and evolved in the region of Bengal situated in the eastern subcontinent of India is rich and varied in its platter starting from snacks to main courses to sweets.",
-    category: "Food",
-    time: " /March 17 2021",
-    claps : 40,
+      "https://thumbor.thedailymeal.com/_iOshLpkCdDtWi0Ysw8sIHy8Yc8=//https://www.theactivetimes.com/sites/default/files/slideshows/104356/115566/Mysterious_Magnetic_Shutterstock.jpg",
+    title: "Magnetic Hill Leh Ladakh India",
+    desc: "We all have studied that gravity pulls all the objects towards it, doesn't it? That’s what Newton proved to that world. But nature always has more things in store than humans could ever imagine. One such place is one of the finest attractions of Ladakh- The Magnetic Hills. It is a gravity-defying place approximately 27 km from Leh City on the Leh-Kargil highway. This place is a designated must-visit attraction while visiting Leh Ladakh.",
+    category: "Travel",
+    time: " /September 10 2019",
+    claps : 56,
     isLiked : false,
   },
 
@@ -105,14 +105,14 @@ const ListOfBlogData = [
 
   {
     id: 8,
-    author: "Paritosh Kashyap",
+    author: "Devender Das",
     ImgUrl:
-      "https://thumbor.thedailymeal.com/_iOshLpkCdDtWi0Ysw8sIHy8Yc8=//https://www.theactivetimes.com/sites/default/files/slideshows/104356/115566/Mysterious_Magnetic_Shutterstock.jpg",
-    title: "Magnetic Hill Leh Ladakh India",
-    desc: "We all have studied that gravity pulls all the objects towards it, doesn't it? That’s what Newton proved to that world. But nature always has more things in store than humans could ever imagine. One such place is one of the finest attractions of Ladakh- The Magnetic Hills. It is a gravity-defying place approximately 27 km from Leh City on the Leh-Kargil highway. This place is a designated must-visit attraction while visiting Leh Ladakh.",
-    category: "Travel",
-    time: " /September 10 2019",
-    claps : 56,
+      "https://www.culturalindia.net/iliimages/Bengali-Food-&-Cuisine-1.jpg",
+    title: "Bengali Food & Cuisine",
+    desc: "Bengali food that originated and evolved in the region of Bengal situated in the eastern subcontinent of India (presently divided into West Bengal in India and a separate nation called Bangladesh) is rich and varied in its platter starting from snacks to main courses to sweets Bengali food that originated and evolved in the region of Bengal situated in the eastern subcontinent of India is rich and varied in its platter starting from snacks to main courses to sweets.",
+    category: "Food",
+    time: " /March 17 2021",
+    claps : 40,
     isLiked : false,
   },
 
