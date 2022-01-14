@@ -92,4 +92,17 @@ router.get("/filterByDate", verifyToken, (req,res)=> {
     .json({success:true, message: "blogs filtered by IsLiked", filterDataByDate})
 })
 
+router.get("/dataForIntro", verifyToken, (req,res)=> {
+    const filteredDataForIntro = ListOfBlogData.slice(0,5)
+    console.log(filteredDataForIntro);
+    if(filteredDataForIntro === undefined || filteredDataForIntro === null ){
+        res.status(400)
+        .json({success : false, message: "No blogs available"})
+        return
+    }
+    res
+    .status(200)
+    .json({success:true, message: "blogs filtered by IsLiked", filteredDataForIntro})
+})
+
 module.exports = router;
