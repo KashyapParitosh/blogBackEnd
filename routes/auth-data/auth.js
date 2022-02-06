@@ -66,7 +66,7 @@ router.post("/signup", (req, res) => {
     if (err) throw err;
     if (user) {
         console.log(user.email);
-      res.json({ success: false, meassage: "User already Registered" });
+      res.json({ success: false, message: "User already Registered" });
     } else {
       const user1 = new UserModel({
         name,
