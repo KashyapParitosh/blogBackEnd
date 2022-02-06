@@ -1,81 +1,107 @@
 const express = require("express");
-const userList = require("./userData");
+
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-const  jwtSecretKey  = require("../../secretKey");
-const jwtConfig = {expiresIn: "300min" }
-// const verifyToken = require('../middleware'); 
+const jwtSecretKey = require("../../secretKey");
+const jwtConfig = { expiresIn: "300min" };
+const UserModel = require("../../dataModels/userModel");
+// const verifyToken = require('../middleware');
 
 router.post("/login", (req, res) => {
-    const emailFromBody = req.body.email;
-    const passwordFromBody = req.body.password;
-    console.log( emailFromBody,passwordFromBody)
-    
-    if( emailFromBody === undefined || passwordFromBody === undefined ) {
-        res
-        .status(400)
-        .json({success : false , message : 'Email or Password is Undefined'})
-        return;
+  const emailFromBody = req.body.email;
+  const passwordFromBody = req.body.password;
+  console.log(emailFromBody, passwordFromBody);
+
+  if (emailFromBody === undefined || passwordFromBody === undefined) {
+    res
+      .status(400)
+      .json({ success: false, message: "Email or Password is Undefined" });
+    return;
+  }
+  UserModel.findOne({ email: emailFromBody }, (err, user) => {
+    if (err) throw err;
+    if (user) {
+      if (passwordFromBody === user.password) {
+        const payload = { userId: user._id };
+        try {
+          const token = jwt.sign(payload, jwtSecretKey, jwtConfig);
+          res
+            .status(200)
+            .json({
+              success: true,
+              message: "Login Successfully",
+              data: { token },
+            });
+        } catch (error) {
+          res
+            .status(400)
+            .json({ success: false, message: "Error while Creating Token" });
+        }
+      } else {
+          res.json({ success : false, message : "Please Provide Correct Password"})
+          return;
+      }
+    } else {
+        res.json({ success : false , message : "user does not exist"})
+        return
     } 
+  });  
+});
 
-    const isUser = userList.find((user)=> {
-        return (
-            user.email === emailFromBody && user.password === passwordFromBody
-        )
-    })
+router.post("/signup", (req, res) => {
+  console.log("its signup route");
+  let userId;
+  const name = req.body.name;
+  const password = req.body.password;
+  const email = req.body.email;
 
-    console.log(isUser);
+  console.log(name, password, email);
+  if (name === undefined || password === undefined || email === undefined) {
+    res
+      .status(400)
+      .json({ success: false, message: "Provide All the Details!" });
+    return;
+  }
+  UserModel.findOne({ email: email }, (err, user) => {
+    if (err) throw err;
+    if (user) {
+        console.log(user.email);
+      res.json({ success: false, meassage: "User already Registered" });
+    } else {
+      const user1 = new UserModel({
+        name,
+        email,
+        password,
+      });
 
-    if (isUser === undefined){
-        res
-           .status(401)
-           .json({success:false, message:"Invalid user"})
-           return;
-    }
-     
-    const payload = { userId : isUser.id }
-    try {
+      user1
+        .save()
+        .then((res) => {
+          console.log(`User Registered Successfully ${res}`);
+          userId = res._id;
+        })
+        .catch((err) => {
+          console.log(`${err}`);
+        });
+
+      const payload = { userId };
+      try {
         const token = jwt.sign(payload, jwtSecretKey, jwtConfig);
+        console.log(token);
         res
-        .status(200)
-        .json({ success : true , message : "Login Successfully", data : {token} })
-    } catch (error) {
+          .status(200)
+          .json({
+            success: true,
+            message: "Login Successfully",
+            data: { token },
+          });
+      } catch (error) {
         res
-        .status(400)
-        .json({ success : false, message : "Error while Creating Token" })
+          .status(400)
+          .json({ success: false, message: "Error while Creating Token" });
+      }
     }
-})
-
-router.post("/signup",(req,res)=>{
-    const name = req.body.name;
-    const password = req.body.password;
-    const email = req.body.email;
-    
-    console.log(name,password,email);
-    if(name === undefined|| password === undefined || email === undefined){
-        res.status(400).json({success:false,message:"Provide All the Details!"})
-        return;
-    }
-
-    let id = userList.length + 1 ;
-
-    const user = {id,name,password,email};
-
-    userList.push(user);
-
-    /* it will send UserList to Server */
-    // res.status(200).json({success:true,message:"Welcome SignUp Successfully",userList})    
-    const payload = { userId : user.id }
-    try {
-        const token = jwt.sign(payload,jwtSecretKey, jwtConfig);
-        res
-        .status(200)
-        .json({ success : true , message : "Login Successfully", data : {token} })
-    } catch (error) {
-        res
-        .status(400)
-        .json({ success : false, message : "Error while Creating Token" })
-    }
-})
+  });
+});
 
 module.exports = router;
